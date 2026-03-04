@@ -23,6 +23,7 @@ https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/rocky9/<
 | `set_nofile_limit.sh` | 设置文件描述符限制 | `bash <(curl -sL <url>)` |
 | `fix_local_subnet_route.sh` | 修复本地子网路由 | `bash <(curl -sL <url>)` |
 | `deploy_redis_10_with_passwd.sh` | 部署10个Redis实例（带密码，外网访问，端口39900-39909） | `bash <(curl -sL <url>) <密码> start` |
+| `install_ffmpeg.sh` | 安装 FFmpeg（通过 RPM Fusion 仓库） | `bash <(curl -sL <url>)` |
 
 ## 一键执行示例
 
@@ -38,4 +39,7 @@ bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/hea
 
 # 部署10个Redis实例（需传入密码）
 bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/rocky9/deploy_redis_10_with_passwd.sh) MyPassword123 start
+
+# 安装 FFmpeg
+bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/rocky9/install_ffmpeg.sh)
 ```
