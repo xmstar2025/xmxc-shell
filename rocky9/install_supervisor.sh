@@ -11,6 +11,15 @@ fi
 echo "==> 安装 supervisor..."
 dnf install -y supervisor
 
+echo "==> 配置 supervisord 崩溃自动重启..."
+mkdir -p /etc/systemd/system/supervisord.service.d
+cat > /etc/systemd/system/supervisord.service.d/restart.conf <<'EOF'
+[Service]
+Restart=always
+RestartSec=5s
+EOF
+systemctl daemon-reload
+
 echo "==> 设置开机自启..."
 systemctl enable supervisord
 
