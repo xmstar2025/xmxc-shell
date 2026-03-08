@@ -22,5 +22,6 @@ dnf install -y atop htop bmon
 
 echo "==> 安装 uv..."
 curl -LsSf https://astral.sh/uv/install.sh | sh
+chcon -t bin_t /root/.local/bin/uv
 
 echo "✓ 基础系统环境配置完成"
