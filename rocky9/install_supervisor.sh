@@ -11,6 +11,13 @@ fi
 echo "==> 安装 supervisor..."
 dnf install -y supervisor
 
+echo "==> 调整 minfds 为 1000000..."
+if grep -q '^minfds=' /etc/supervisord.conf; then
+    sed -i 's/^minfds=.*/minfds=1000000/' /etc/supervisord.conf
+else
+    sed -i '/^\[supervisord\]/a minfds=1000000' /etc/supervisord.conf
+fi
+
 echo "==> 配置 supervisord 崩溃自动重启..."
 mkdir -p /etc/systemd/system/supervisord.service.d
 cat > /etc/systemd/system/supervisord.service.d/restart.conf <<'EOF'
