@@ -18,7 +18,10 @@ echo "==> 安装开发工具组..."
 dnf groupinstall -y "Development Tools"
 
 echo "==> 安装监控工具..."
-dnf install -y atop htop bmon
+dnf install -y atop htop bmon lsof python3-pip
+
+echo "==> 安装 py-spy..."
+pip3 install py-spy
 
 echo "==> 安装 uv..."
 curl -LsSf https://astral.sh/uv/install.sh | sh
