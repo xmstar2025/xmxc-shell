@@ -16,6 +16,7 @@
 | `set_nofile_limit.sh` | 设置文件描述符限制 | `bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/rocky9/set_nofile_limit.sh)` |
 | `fix_local_subnet_route.sh` | 修复本地子网路由 | `bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/rocky9/fix_local_subnet_route.sh)` |
 | `deploy_redis_10_with_passwd.sh` | 部署10个Redis实例（带密码，外网访问，端口39900-39909） | `bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/rocky9/deploy_redis_10_with_passwd.sh) <密码> start` |
+| `set_dns.sh` | 修改 DNS 配置（8.8.8.8 / 1.1.1.1，nmcli 持久化） | `bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/rocky9/set_dns.sh)` |
 
 ## repair 脚本
 
@@ -55,6 +56,9 @@ bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/hea
 
 # 部署10个Redis实例（需传入密码）
 bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/rocky9/deploy_redis_10_with_passwd.sh) MyPassword123 start
+
+# 修改 DNS 配置
+bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/rocky9/set_dns.sh)
 
 # 修复 supervisord 自动重启
 bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/repair/fix_supervisord_autorestart.sh)
