@@ -18,18 +18,12 @@
 | `deploy_redis_10_with_passwd.sh` | 部署10个Redis实例（带密码，外网访问，端口39900-39909） | `bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/rocky9/deploy_redis_10_with_passwd.sh) <密码> start` |
 | `set_dns.sh` | 修改 DNS 配置（8.8.8.8 / 1.1.1.1，nmcli 持久化） | `bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/rocky9/set_dns.sh)` |
 
-## repair 脚本
-
-| 脚本 | 说明 | 一键安装命令 |
-|------|------|------|
-| `fix_supervisord_autorestart.sh` | 修复 supervisord 自动重启 | `bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/repair/fix_supervisord_autorestart.sh)` |
-
 ## clear 脚本
 
-| 脚本 | 说明 | 用法 |
+| 脚本 | 说明 | 一键执行命令 |
 |------|------|------|
-| `clear_systemd.sh` | 清理单个 systemd 服务（停止、禁用、删除 .service 文件） | `sudo bash clear/clear_systemd.sh <服务名>` |
-| `clear_machine.sh` | 完整清理机器（systemd 服务 + 临时文件 + 代码目录 + Redis） | `sudo bash clear/clear_machine.sh` |
+| `clear_systemd.sh` | 清理单个 systemd 服务（停止、禁用、删除 .service 文件） | `sudo bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/clear/clear_systemd.sh) <服务名>` |
+| `clear_machine.sh` | 完整清理机器（systemd 服务 + 临时文件 + 代码目录 + Redis） | `sudo bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/clear/clear_machine.sh)` |
 
 ## 一键执行
 
@@ -67,6 +61,10 @@ bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/hea
 # 修改 DNS 配置
 bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/rocky9/set_dns.sh)
 
-# 修复 supervisord 自动重启
-bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/repair/fix_supervisord_autorestart.sh)
+# 清理单个 systemd 服务
+sudo bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/clear/clear_systemd.sh) <服务名>
+
+# 完整清理机器
+sudo bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/clear/clear_machine.sh)
+
 ```
