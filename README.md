@@ -24,6 +24,13 @@
 |------|------|------|
 | `fix_supervisord_autorestart.sh` | 修复 supervisord 自动重启 | `bash <(curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/repair/fix_supervisord_autorestart.sh)` |
 
+## clear 脚本
+
+| 脚本 | 说明 | 用法 |
+|------|------|------|
+| `clear_systemd.sh` | 清理单个 systemd 服务（停止、禁用、删除 .service 文件） | `sudo bash clear/clear_systemd.sh <服务名>` |
+| `clear_machine.sh` | 完整清理机器（systemd 服务 + 临时文件 + 代码目录 + Redis） | `sudo bash clear/clear_machine.sh` |
+
 ## 一键执行
 
 ```bash
