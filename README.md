@@ -66,4 +66,7 @@ curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main
 
 # 完整清理机器
 curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/clear/clear_machine.sh | sudo bash
+
+# 安装 git
+curl -s https://r2.xmxcmoe.com/install/install-git.sh | bash
 ```
