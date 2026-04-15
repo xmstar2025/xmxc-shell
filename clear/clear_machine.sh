@@ -33,8 +33,12 @@ SERVICES=(
     docling-worker
     docling-uploader
     docling-watchdog
-#    hc-2026-03-10-html-re-0
-#    hc-2026-03-10-html-re-1
+    hc-2026-03-10-html-re-0
+    hc-2026-03-10-html-re-1
+    github-fetch-metadata
+    github-fetch-repo
+    github-metrics-pusher
+
 #    pc-2026-03-16-pdf-0
 #    pc-2026-03-16-pdf-1
 )
