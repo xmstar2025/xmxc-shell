@@ -16,7 +16,7 @@ DEPLOY_DIRS=(
     "/home/work/pdf-docling"
 )
 REDIS_CLI="redis-cli"
-SCRIPT_DIR="$(dirname "$0")"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # ── 1. 清理 systemd 服务 ───────────────────────────────────────
 echo "==> [1/3] 清理 systemd 服务..."
@@ -48,14 +48,12 @@ for SVC in "${SERVICES[@]}"; do
     bash "$SCRIPT_DIR/clear_systemd.sh" "$SVC" || true
 done
 
-# 动态清理所有 xmxc- 开头的 systemd 服务
+# 动态清理所有 xmxc- 开头的 systemd 服务（扫 service 文件，防止已停止的漏掉）
 echo "==> 清理所有 xmxc-* 服务..."
-while IFS= read -r SVC; do
-    [ -z "$SVC" ] && continue
+while IFS= read -r SERVICE_FILE; do
+    SVC="$(basename "$SERVICE_FILE" .service)"
     bash "$SCRIPT_DIR/clear_systemd.sh" "$SVC" || true
-done < <(systemctl list-units --all --no-legend --plain 'xmxc-*' 2>/dev/null \
-    | awk '{print $1}' \
-    | sed 's/\.service$//')
+done < <(ls /etc/systemd/system/xmxc-*.service 2>/dev/null)
 
 systemctl reset-failed || true
 
