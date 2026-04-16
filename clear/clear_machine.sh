@@ -10,6 +10,7 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 DEPLOY_DIRS=(
+    "/home/work/git-download"
     "/home/work/scrapy-html-crawler"
     "/home/work/scrapy-pdf-crawler"
     "/home/work/pdf-docling"
