@@ -16,7 +16,30 @@ DEPLOY_DIRS=(
     "/home/work/pdf-docling"
 )
 REDIS_CLI="redis-cli"
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+clear_systemd() {
+    local SVC="$1"
+    local SERVICE_FILE="/etc/systemd/system/${SVC}.service"
+
+    if systemctl is-active --quiet "${SVC}" 2>/dev/null; then
+        systemctl stop "${SVC}"
+        echo "==> 已停止: ${SVC}"
+    else
+        echo "==> 未运行: ${SVC}"
+    fi
+
+    if systemctl is-enabled --quiet "${SVC}" 2>/dev/null; then
+        systemctl disable "${SVC}"
+        echo "==> 已禁用: ${SVC}"
+    fi
+
+    if [ -f "$SERVICE_FILE" ]; then
+        rm "$SERVICE_FILE"
+        echo "==> 已删除: $SERVICE_FILE"
+    else
+        echo "==> 不存在: $SERVICE_FILE"
+    fi
+}
 
 # ── 1. 清理 systemd 服务 ───────────────────────────────────────
 echo "==> [1/3] 清理 systemd 服务..."
@@ -45,15 +68,16 @@ SERVICES=(
 )
 
 for SVC in "${SERVICES[@]}"; do
-    bash "$SCRIPT_DIR/clear_systemd.sh" "$SVC" || true
+    clear_systemd "$SVC" || true
 done
 
 # 动态清理所有 xmxc- 开头的 systemd 服务（扫 service 文件，防止已停止的漏掉）
 echo "==> 清理所有 xmxc-* 服务..."
-while IFS= read -r SERVICE_FILE; do
+for SERVICE_FILE in /etc/systemd/system/xmxc-*.service; do
+    [ -f "$SERVICE_FILE" ] || continue
     SVC="$(basename "$SERVICE_FILE" .service)"
-    bash "$SCRIPT_DIR/clear_systemd.sh" "$SVC" || true
-done < <(ls /etc/systemd/system/xmxc-*.service 2>/dev/null)
+    clear_systemd "$SVC" || true
+done
 
 systemctl reset-failed || true
 
