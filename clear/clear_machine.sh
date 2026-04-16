@@ -47,6 +47,15 @@ for SVC in "${SERVICES[@]}"; do
     bash "$SCRIPT_DIR/clear_systemd.sh" "$SVC" || true
 done
 
+# 动态清理所有 xmxc- 开头的 systemd 服务
+echo "==> 清理所有 xmxc-* 服务..."
+while IFS= read -r SVC; do
+    [ -z "$SVC" ] && continue
+    bash "$SCRIPT_DIR/clear_systemd.sh" "$SVC" || true
+done < <(systemctl list-units --all --no-legend --plain 'xmxc-*' 2>/dev/null \
+    | awk '{print $1}' \
+    | sed 's/\.service$//')
+
 systemctl reset-failed || true
 
 # ── 2. 删除临时文件 ────────────────────────────────────────────
