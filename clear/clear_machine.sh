@@ -62,9 +62,8 @@ SERVICES=(
     github-fetch-metadata
     github-fetch-repo
     github-metrics-pusher
-
-#    pc-2026-03-16-pdf-0
-#    pc-2026-03-16-pdf-1
+    pc-2026-03-16-pdf-0
+    pc-2026-03-16-pdf-1
 )
 
 for SVC in "${SERVICES[@]}"; do
