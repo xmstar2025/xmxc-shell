@@ -2,6 +2,12 @@
 
 常用服务器运维脚本集合，适用于 Rocky Linux 9。
 
+## 初始化机器（一键）
+
+```bash
+curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/rocky9/install_machine_init.sh | bash
+```
+
 ## rocky9 脚本
 
 | 脚本 | 说明 | 一键安装命令 |
