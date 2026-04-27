@@ -26,5 +26,5 @@ pip3 install py-spy
 echo "==> 安装 uv..."
 curl -LsSf https://astral.sh/uv/install.sh | sh
 #restorecon -v /root/.local/bin/uv 2>/dev/null || chcon -u system_u -r object_r -t bin_t /root/.local/bin/uv 2>/dev/null || true
-
+chcon -t bin_t /root/.local/bin/uv /root/.local/bin/uvx
 echo "✓ 基础系统环境配置完成"
