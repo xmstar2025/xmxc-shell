@@ -3,6 +3,7 @@
 # 用法：sudo bash clear/clear_systemd.sh <服务名>
 # 示例：sudo bash clear/clear_systemd.sh hc-2026-03-10-html-0
 
+
 set -e
 
 if [ "$(id -u)" -ne 0 ]; then

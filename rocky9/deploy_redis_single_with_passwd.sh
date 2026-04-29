@@ -60,6 +60,7 @@ dir "$REDIS_DATA_DIR/$port"
 requirepass $REDIS_PASSWORD
 
 # 内存管理
+maxmemory 20gb
 maxmemory-policy noeviction
 
 # 关闭持久化
