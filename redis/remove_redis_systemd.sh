@@ -13,6 +13,12 @@ fi
 PORT="$1"
 
 SERVICE_NAME="redis-server-${PORT}"
+
+if [[ "$SERVICE_NAME" != *"redis"* ]] || [[ "$SERVICE_NAME" == "redis" ]]; then
+    echo "错误: 服务名 '$SERVICE_NAME' 不合法，必须包含 redis 且不能是默认的 redis 服务"
+    exit 1
+fi
+
 UNIT_FILE="/etc/systemd/system/${SERVICE_NAME}.service"
 REDIS_CONF_DIR="/etc/redis"
 REDIS_DATA_DIR="/var/lib/redis"

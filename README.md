@@ -12,5 +12,4 @@ curl -sSL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/mai
 curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/time/set_timezone_cn.sh | bash
 curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/time/install_chrony.sh | bash
 curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/redis/install_redis.sh | bash
-curl -s https://r2.xmxcmoe.com/install/install-git.sh | bash
 ```
