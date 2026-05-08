@@ -18,13 +18,11 @@ echo "==> 安装开发工具组..."
 dnf groupinstall -y "Development Tools"
 
 echo "==> 安装监控工具..."
-dnf install -y atop htop bmon lsof python3-pip nethogs
+dnf install -y atop htop bmon lsof python3-pip nethogs iftop
 
 echo "==> 安装 py-spy..."
 pip3 install py-spy
 
 echo "==> 安装 uv..."
 curl -LsSf https://astral.sh/uv/install.sh | sh
-#restorecon -v /root/.local/bin/uv 2>/dev/null || chcon -u system_u -r object_r -t bin_t /root/.local/bin/uv 2>/dev/null || true
-chcon -t bin_t /root/.local/bin/uv /root/.local/bin/uvx
 echo "✓ 基础系统环境配置完成"
