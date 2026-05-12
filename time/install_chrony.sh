@@ -11,8 +11,13 @@ fi
 echo "==> 安装 chrony..."
 dnf install -y chrony
 
+echo "==> 配置 makestep（允许任意时刻跳步纠偏）..."
+sed -i 's/^makestep.*/makestep 1.0 -1/' /etc/chrony.conf
+
+
 echo "==> 启动并设置开机自启..."
 systemctl enable --now chronyd
+systemctl restart chronyd
 
 sleep 2
 
