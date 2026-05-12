@@ -11,3 +11,11 @@ curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main
 ```bash
 curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/time/install_chrony.sh | bash
 ```
+
+## 设置硬件时钟为 UTC
+
+解决双系统（Linux + Windows）时间错乱问题。
+
+```bash
+curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/time/fix_rtc_utc.sh | bash
+```

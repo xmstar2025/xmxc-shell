@@ -4,5 +4,5 @@
 
 ```bash
 # 启动 Zookeeper 容器（客户端端口 2181，管理界面端口 48080）
-docker run -d --name zookeeper -p 2181:2181 -p 48080:8080 zookeeper:latest
+docker run -d --name zookeeper --restart unless-stopped -p 2181:2181 -p 48080:8080 zookeeper:latest
 ```

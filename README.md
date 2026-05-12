@@ -11,5 +11,6 @@ curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main
 curl -sSL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/system/set_nofile_limit.sh | bash || true
 curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/time/set_timezone_cn.sh | bash
 curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/time/install_chrony.sh | bash
+curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/time/fix_rtc_utc.sh | bash
 curl -sL https://raw.githubusercontent.com/xmstar2025/xmxc-shell/refs/heads/main/redis/install_redis.sh | bash
 ```
