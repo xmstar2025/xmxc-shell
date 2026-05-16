@@ -18,7 +18,7 @@ echo "==> 安装开发工具组..."
 dnf groupinstall -y "Development Tools"
 
 echo "==> 安装监控工具..."
-dnf install -y atop htop bmon lsof python3-pip nethogs iftop
+dnf install -y bind-utils atop htop bmon lsof python3-pip nethogs iftop
 
 echo "==> 安装 py-spy..."
 pip3 install py-spy
