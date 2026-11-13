@@ -57,7 +57,7 @@ UMask=0077
 NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=strict
-ProtectHome=true
+ProtectHome=read-only
 ReadOnlyPaths=$state $runtime
 CapabilityBoundingSet=CAP_NET_BIND_SERVICE
 [Install]
@@ -95,6 +95,9 @@ systemctl daemon-reload
 systemctl enable xmxc-hy2.service
 systemctl restart xmxc-hy2.service
 systemctl enable --now xmxc-hy2-cert-renew.timer
-systemctl is-active xmxc-hy2.service xmxc-hy2-cert-renew.timer
+sleep 2
+systemctl is-active --quiet xmxc-hy2.service
+[[ $(systemctl show xmxc-hy2.service --property=SubState --value) == running ]]
+systemctl is-active --quiet xmxc-hy2-cert-renew.timer
 openssl x509 -in "$state/letsencrypt/live/$address/cert.pem" -noout -subject -issuer -dates -ext subjectAltName
 printf 'HY2 ready: %s:%s/udp; client URI: %s/client-uri.txt\n' "$address" "$port" "$state"
