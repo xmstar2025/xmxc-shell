@@ -71,7 +71,7 @@ After=network-online.target
 [Service]
 Type=oneshot
 WorkingDirectory=$runtime
-ExecStart=$certbot_bin renew --non-interactive --cert-name $address --config-dir $state/letsencrypt --work-dir $runtime/certbot-work --logs-dir $runtime/certbot-logs --deploy-hook "/usr/bin/systemctl try-restart xmxc-hy2.service"
+ExecStart=$certbot_bin renew --non-interactive --no-random-sleep-on-renew --cert-name $address --config-dir $state/letsencrypt --work-dir $runtime/certbot-work --logs-dir $runtime/certbot-logs --deploy-hook "/usr/bin/systemctl try-restart xmxc-hy2.service"
 UMask=0077
 TimeoutStartSec=300
 EOF
